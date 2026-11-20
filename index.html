@@ -38,6 +38,9 @@
         <div class="menu-anchor">
           <button class="icon-pill" id="btnMoreMenu" title="Import, Export & Embed">⋯</button>
           <div class="dropdown-menu glass-panel hidden" id="moreDropdown">
+            <button id="btnCloudPush">☁️ Push Playbook to Cloud</button>
+            <button id="btnSyncSettings">⚙️ Cloud Sync Settings</button>
+            <div class="dropdown-divider"></div>
             <button id="btnNewDrill">+ New Blank Drill</button>
             <button id="btnImportJson">Import Drill JSON</button>
             <button id="btnExportBackup">Export Playbook Backup (.json)</button>
@@ -156,21 +159,21 @@
     <div class="drawer-filters">
       <input type="search" id="searchInput" class="input-field" placeholder="Search drills or notes..." />
       <div class="filter-grid">
-        <select id="filterAge" class="select-field" aria-label="Filter by age group">
-          <option value="all">All Ages</option>
+        <select id="filterAge" class="select-field" aria-label="Filter by level or age group">
+          <option value="all">All Levels</option>
+          <option value="First Team">First Team</option>
           <option value="U4">U4</option><option value="U5">U5</option><option value="U6">U6</option>
           <option value="U7">U7</option><option value="U8">U8</option><option value="U9">U9</option>
           <option value="U10">U10</option><option value="U11">U11</option><option value="U12">U12</option>
         </select>
-        <select id="filterTopic" class="select-field" aria-label="Filter by coaching topic">
-          <option value="all">All Topics</option>
-          <option value="Transition">Transition</option>
-          <option value="Rondo">Rondo</option>
-          <option value="Finishing">Finishing</option>
-          <option value="Possession">Possession</option>
-          <option value="Pressing">Pressing</option>
-          <option value="Defending">Defending</option>
-          <option value="1v1 / Dribbling">1v1 / Dribbling</option>
+        <select id="filterTopic" class="select-field" aria-label="Filter by tag or topic">
+          <option value="all">All Tags</option>
+          <option value="passing">passing</option>
+          <option value="technical">technical</option>
+          <option value="transition">transition</option>
+          <option value="rondos">rondos</option>
+          <option value="game fitness">game fitness</option>
+          <option value="shooting">shooting</option>
         </select>
         <select id="filterPlayers" class="select-field" aria-label="Filter by player count">
           <option value="all">Any Size</option>
@@ -245,6 +248,33 @@
       <div class="modal-footer">
         <button class="btn-secondary" id="cancelMetaBtn">Cancel</button>
         <button class="btn-primary" id="saveMetaBtn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Cloud Sync Settings Modal -->
+  <div class="modal-backdrop hidden" id="syncModal">
+    <div class="modal-card glass-panel">
+      <div class="modal-header">
+        <h3>Cloud Sync Settings (GitHub)</h3>
+        <button class="icon-btn" id="closeSyncModal">✕</button>
+      </div>
+      <p class="modal-hint">Saved locally on this device only. Once set, tap <strong>Push Playbook to Cloud</strong> anytime to sync everywhere.</p>
+      <div class="form-grid">
+        <label>GitHub Repository (owner/repo)
+          <input type="text" id="syncRepo" class="input-field" value="nblanco1213/blanco-tactical-studio" />
+        </label>
+        <label>Branch
+          <input type="text" id="syncBranch" class="input-field" value="main" />
+        </label>
+        <label style="grid-column: span 2;">GitHub Personal Access Token
+          <input type="password" id="syncToken" class="input-field" placeholder="github_pat_..." />
+        </label>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="cancelSyncBtn">Cancel</button>
+        <button class="btn-primary" id="saveSyncBtn">Save Sync Key</button>
       </div>
     </div>
   </div>

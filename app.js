@@ -1,5 +1,6 @@
 const STORAGE_KEY = "blanco_tactical_playbook_v1";
 const THEME_KEY = "blanco_tactical_theme";
+const SYNC_KEY = "blanco_tactical_sync_cfg";
 
 const TEAM_COLORS = {
   blue: { fill: "#38bdf8", stroke: "#0c4a6e", text: "#082f49" },
@@ -10,198 +11,2512 @@ const TEAM_COLORS = {
 };
 
 const FALLBACK_PLAYBOOK = {
-  version: "1.0",
-  appName: "Blanco Tactical Studio",
-  drills: [
+  "version": "1.1",
+  "appName": "Blanco Tactical Studio",
+  "drills": [
     {
-      id: "switchbacks-rondo-to-goal-01",
-      title: "Rondo-to-Goal Transition (4v2 Boxes → 5v5+GK)",
-      date: "2026-06-01",
-      ageGroup: "U12",
-      topic: "Transition",
-      playerCount: 19,
-      pitchType: "half-vertical",
-      dimensions: "Half Pitch + Dual 7x7 Rondo Boxes",
-      coachingPoints: {
-        towardGoal: [
-          "Green: Two from Rondo enter the attack — forward w/ pace",
-          "Blue: One from each rondo box tracks back to defend (6 & fullback) — man mark"
+      "id": "switchbacks-rondo-to-goal-01",
+      "title": "Rondo-to-Goal Transition (4v2 Boxes \u2192 5v5+GK)",
+      "date": "2026-06-01",
+      "ageGroup": "First Team",
+      "topic": "Transition",
+      "playerCount": 19,
+      "pitchType": "half-vertical",
+      "dimensions": "Half Pitch + Dual 7x7 Rondo Boxes",
+      "coachingPoints": {
+        "towardGoal": [
+          "Green: Two from Rondo enter the attack \u2014 forward w/ pace",
+          "Blue: One from each rondo box tracks back to defend (6 & fullback) \u2014 man mark"
         ],
-        rondoAction: [
+        "rondoAction": [
           "Green: Defending rondo... If they win it, they go towards goal",
           "Blue: Simple rondo, X passes & pass into mini goals"
         ],
-        generalNotes: [
+        "generalNotes": [
           "Switch rondo box every rep",
           "Forward",
           "Tempo",
           "Man marking"
         ]
       },
-      equipment: [
-        { type: "goal-main", x: 50, y: 4, rotation: 0 },
-        { type: "goal-mini", x: 16, y: 96, rotation: 0 },
-        { type: "goal-mini", x: 28, y: 96, rotation: 0 },
-        { type: "goal-mini", x: 72, y: 96, rotation: 0 },
-        { type: "goal-mini", x: 84, y: 96, rotation: 0 },
-        { type: "zone", x: 13, y: 76, w: 18, h: 14, label: "7x7" },
-        { type: "zone", x: 69, y: 76, w: 18, h: 14, label: "7x7" },
-        { type: "cone", x: 13, y: 76 }, { type: "cone", x: 31, y: 76 },
-        { type: "cone", x: 13, y: 90 }, { type: "cone", x: 31, y: 90 },
-        { type: "cone", x: 69, y: 76 }, { type: "cone", x: 87, y: 76 },
-        { type: "cone", x: 69, y: 90 }, { type: "cone", x: 87, y: 90 }
-      ],
-      phases: [
+      "equipment": [
         {
-          name: "Phase 1: Rondo Action (4v2)",
-          note: "Blue circulates in the 7x7 rondo (X passes → score in mini goals). Green presses 2v4.",
-          durationMs: 1800,
-          players: [
-            { id: "gk1", team: "gk", num: "1", x: 50, y: 9 },
-            { id: "b1", team: "blue", num: "4", x: 28, y: 35 },
-            { id: "b2", team: "blue", num: "5", x: 52, y: 35 },
-            { id: "b3", team: "blue", num: "2", x: 76, y: 35 },
-            { id: "g1", team: "green", num: "11", x: 17, y: 46 },
-            { id: "g2", team: "green", num: "9", x: 43, y: 41 },
-            { id: "g3", team: "green", num: "7", x: 78, y: 45 },
-            { id: "lb1", team: "blue", num: "6", x: 16, y: 78 },
-            { id: "lb2", team: "blue", num: "8", x: 28, y: 78 },
-            { id: "lb3", team: "blue", num: "3", x: 16, y: 88 },
-            { id: "lb4", team: "blue", num: "10", x: 28, y: 88 },
-            { id: "lg1", team: "green", num: "8", x: 20, y: 82 },
-            { id: "lg2", team: "green", num: "10", x: 25, y: 84 },
-            { id: "rb1", team: "blue", num: "6", x: 72, y: 78 },
-            { id: "rb2", team: "blue", num: "8", x: 84, y: 78 },
-            { id: "rb3", team: "blue", num: "2", x: 72, y: 88 },
-            { id: "rb4", team: "blue", num: "10", x: 84, y: 88 },
-            { id: "rg1", team: "green", num: "8", x: 76, y: 82 },
-            { id: "rg2", team: "green", num: "10", x: 81, y: 84 }
-          ],
-          balls: [{ id: "ball1", x: 18, y: 79 }],
-          arrows: [
-            { type: "pass", x1: 18, y1: 79, x2: 26, y2: 79 },
-            { type: "pass", x1: 28, y1: 80, x2: 28, y2: 86 }
-          ]
+          "type": "goal-main",
+          "x": 50,
+          "y": 4,
+          "rotation": 0
         },
         {
-          name: "Phase 2: Green Wins Possession",
-          note: "Green (#10) intercepts inside the left rondo box and looks forward immediately.",
-          durationMs: 1500,
-          players: [
-            { id: "gk1", team: "gk", num: "1", x: 50, y: 9 },
-            { id: "b1", team: "blue", num: "4", x: 28, y: 35 },
-            { id: "b2", team: "blue", num: "5", x: 52, y: 35 },
-            { id: "b3", team: "blue", num: "2", x: 76, y: 35 },
-            { id: "g1", team: "green", num: "11", x: 17, y: 46 },
-            { id: "g2", team: "green", num: "9", x: 43, y: 41 },
-            { id: "g3", team: "green", num: "7", x: 78, y: 45 },
-            { id: "lb1", team: "blue", num: "6", x: 16, y: 77 },
-            { id: "lb2", team: "blue", num: "8", x: 29, y: 79 },
-            { id: "lb3", team: "blue", num: "3", x: 16, y: 88 },
-            { id: "lb4", team: "blue", num: "10", x: 28, y: 88 },
-            { id: "lg1", team: "green", num: "8", x: 21, y: 79 },
-            { id: "lg2", team: "green", num: "10", x: 25, y: 83 },
-            { id: "rb1", team: "blue", num: "6", x: 72, y: 78 },
-            { id: "rb2", team: "blue", num: "8", x: 84, y: 78 },
-            { id: "rb3", team: "blue", num: "2", x: 72, y: 88 },
-            { id: "rb4", team: "blue", num: "10", x: 84, y: 88 },
-            { id: "rg1", team: "green", num: "8", x: 76, y: 82 },
-            { id: "rg2", team: "green", num: "10", x: 81, y: 84 }
-          ],
-          balls: [{ id: "ball1", x: 25, y: 81 }],
-          arrows: [
-            { type: "dribble", x1: 25, y1: 81, x2: 32, y2: 60 },
-            { type: "run", x1: 21, y1: 79, x2: 36, y2: 58 }
-          ]
+          "type": "goal-mini",
+          "x": 16,
+          "y": 96,
+          "rotation": 0
         },
         {
-          name: "Phase 3: Two Enter Attack w/ Pace",
-          note: "Both Green rondo players burst forward into the attack. One Blue from each box (#6 & fullback) triggers recovery.",
-          durationMs: 2000,
-          players: [
-            { id: "gk1", team: "gk", num: "1", x: 50, y: 9 },
-            { id: "b1", team: "blue", num: "4", x: 28, y: 34 },
-            { id: "b2", team: "blue", num: "5", x: 52, y: 33 },
-            { id: "b3", team: "blue", num: "2", x: 75, y: 34 },
-            { id: "g1", team: "green", num: "11", x: 18, y: 38 },
-            { id: "g2", team: "green", num: "9", x: 45, y: 34 },
-            { id: "g3", team: "green", num: "7", x: 77, y: 37 },
-            { id: "lb1", team: "blue", num: "6", x: 24, y: 64 },
-            { id: "lb2", team: "blue", num: "8", x: 29, y: 79 },
-            { id: "lb3", team: "blue", num: "3", x: 16, y: 88 },
-            { id: "lb4", team: "blue", num: "10", x: 28, y: 88 },
-            { id: "lg1", team: "green", num: "8", x: 38, y: 54 },
-            { id: "lg2", team: "green", num: "10", x: 31, y: 57 },
-            { id: "rb1", team: "blue", num: "6", x: 65, y: 60 },
-            { id: "rb2", team: "blue", num: "8", x: 84, y: 78 },
-            { id: "rb3", team: "blue", num: "2", x: 72, y: 88 },
-            { id: "rb4", team: "blue", num: "10", x: 84, y: 88 },
-            { id: "rg1", team: "green", num: "8", x: 76, y: 82 },
-            { id: "rg2", team: "green", num: "10", x: 81, y: 84 }
-          ],
-          balls: [{ id: "ball1", x: 32, y: 56 }],
-          arrows: [
-            { type: "pass", x1: 32, y1: 56, x2: 44, y2: 36 },
-            { type: "run", x1: 24, y1: 64, x2: 36, y2: 45 },
-            { type: "run", x1: 65, y1: 60, x2: 58, y2: 42 }
-          ]
+          "type": "goal-mini",
+          "x": 28,
+          "y": 96,
+          "rotation": 0
         },
         {
-          name: "Phase 4: Recovery & Man Marking",
-          note: "Blue #6 and fullback track back to man-mark the late Green runners. Green plays at tempo.",
-          durationMs: 1800,
-          players: [
-            { id: "gk1", team: "gk", num: "1", x: 49, y: 8 },
-            { id: "b1", team: "blue", num: "4", x: 27, y: 29 },
-            { id: "b2", team: "blue", num: "5", x: 51, y: 27 },
-            { id: "b3", team: "blue", num: "2", x: 72, y: 29 },
-            { id: "g1", team: "green", num: "11", x: 22, y: 27 },
-            { id: "g2", team: "green", num: "9", x: 47, y: 25 },
-            { id: "g3", team: "green", num: "7", x: 73, y: 26 },
-            { id: "lb1", team: "blue", num: "6", x: 35, y: 42 },
-            { id: "lb2", team: "blue", num: "8", x: 29, y: 79 },
-            { id: "lb3", team: "blue", num: "3", x: 16, y: 88 },
-            { id: "lb4", team: "blue", num: "10", x: 28, y: 88 },
-            { id: "lg1", team: "green", num: "8", x: 42, y: 38 },
-            { id: "lg2", team: "green", num: "10", x: 33, y: 40 },
-            { id: "rb1", team: "blue", num: "6", x: 58, y: 40 },
-            { id: "rb2", team: "blue", num: "8", x: 84, y: 78 },
-            { id: "rb3", team: "blue", num: "2", x: 72, y: 88 },
-            { id: "rb4", team: "blue", num: "10", x: 84, y: 88 },
-            { id: "rg1", team: "green", num: "8", x: 76, y: 82 },
-            { id: "rg2", team: "green", num: "10", x: 81, y: 84 }
-          ],
-          balls: [{ id: "ball1", x: 46, y: 26 }],
-          arrows: [{ type: "pass", x1: 46, y1: 26, x2: 66, y2: 22 }]
+          "type": "goal-mini",
+          "x": 72,
+          "y": 96,
+          "rotation": 0
         },
         {
-          name: "Phase 5: Finish on Goal",
-          note: "Green attacks the box with 5 players for a decisive finish. Next rep: switch to right rondo box!",
-          durationMs: 1800,
-          players: [
-            { id: "gk1", team: "gk", num: "1", x: 53, y: 7 },
-            { id: "b1", team: "blue", num: "4", x: 33, y: 21 },
-            { id: "b2", team: "blue", num: "5", x: 50, y: 20 },
-            { id: "b3", team: "blue", num: "2", x: 64, y: 21 },
-            { id: "g1", team: "green", num: "11", x: 29, y: 19 },
-            { id: "g2", team: "green", num: "9", x: 48, y: 17 },
-            { id: "g3", team: "green", num: "7", x: 67, y: 20 },
-            { id: "lb1", team: "blue", num: "6", x: 39, y: 28 },
-            { id: "lb2", team: "blue", num: "8", x: 29, y: 79 },
-            { id: "lb3", team: "blue", num: "3", x: 16, y: 88 },
-            { id: "lb4", team: "blue", num: "10", x: 28, y: 88 },
-            { id: "lg1", team: "green", num: "8", x: 44, y: 27 },
-            { id: "lg2", team: "green", num: "10", x: 37, y: 26 },
-            { id: "rb1", team: "blue", num: "6", x: 57, y: 27 },
-            { id: "rb2", team: "blue", num: "8", x: 84, y: 78 },
-            { id: "rb3", team: "blue", num: "2", x: 72, y: 88 },
-            { id: "rb4", team: "blue", num: "10", x: 84, y: 88 },
-            { id: "rg1", team: "green", num: "8", x: 76, y: 82 },
-            { id: "rg2", team: "green", num: "10", x: 81, y: 84 }
-          ],
-          balls: [{ id: "ball1", x: 51, y: 6 }],
-          arrows: [{ type: "shot", x1: 66, y1: 20, x2: 51, y2: 6 }]
+          "type": "goal-mini",
+          "x": 84,
+          "y": 96,
+          "rotation": 0
+        },
+        {
+          "type": "zone",
+          "x": 13,
+          "y": 76,
+          "w": 18,
+          "h": 14,
+          "label": "7x7"
+        },
+        {
+          "type": "zone",
+          "x": 69,
+          "y": 76,
+          "w": 18,
+          "h": 14,
+          "label": "7x7"
+        },
+        {
+          "type": "cone",
+          "x": 13,
+          "y": 76
+        },
+        {
+          "type": "cone",
+          "x": 31,
+          "y": 76
+        },
+        {
+          "type": "cone",
+          "x": 13,
+          "y": 90
+        },
+        {
+          "type": "cone",
+          "x": 31,
+          "y": 90
+        },
+        {
+          "type": "cone",
+          "x": 69,
+          "y": 76
+        },
+        {
+          "type": "cone",
+          "x": 87,
+          "y": 76
+        },
+        {
+          "type": "cone",
+          "x": 69,
+          "y": 90
+        },
+        {
+          "type": "cone",
+          "x": 87,
+          "y": 90
         }
+      ],
+      "phases": [
+        {
+          "name": "Phase 1: Rondo Action (4v2)",
+          "note": "Blue circulates in the 7x7 rondo (X passes \u2192 score in mini goals). Green presses 2v4.",
+          "durationMs": 1800,
+          "players": [
+            {
+              "id": "gk1",
+              "team": "gk",
+              "num": "1",
+              "x": 50,
+              "y": 9
+            },
+            {
+              "id": "b1",
+              "team": "blue",
+              "num": "4",
+              "x": 28,
+              "y": 35
+            },
+            {
+              "id": "b2",
+              "team": "blue",
+              "num": "5",
+              "x": 52,
+              "y": 35
+            },
+            {
+              "id": "b3",
+              "team": "blue",
+              "num": "2",
+              "x": 76,
+              "y": 35
+            },
+            {
+              "id": "g1",
+              "team": "green",
+              "num": "11",
+              "x": 17,
+              "y": 46
+            },
+            {
+              "id": "g2",
+              "team": "green",
+              "num": "9",
+              "x": 43,
+              "y": 41
+            },
+            {
+              "id": "g3",
+              "team": "green",
+              "num": "7",
+              "x": 78,
+              "y": 45
+            },
+            {
+              "id": "lb1",
+              "team": "blue",
+              "num": "6",
+              "x": 16,
+              "y": 78
+            },
+            {
+              "id": "lb2",
+              "team": "blue",
+              "num": "8",
+              "x": 28,
+              "y": 78
+            },
+            {
+              "id": "lb3",
+              "team": "blue",
+              "num": "3",
+              "x": 16,
+              "y": 88
+            },
+            {
+              "id": "lb4",
+              "team": "blue",
+              "num": "10",
+              "x": 28,
+              "y": 88
+            },
+            {
+              "id": "lg1",
+              "team": "green",
+              "num": "8",
+              "x": 20,
+              "y": 82
+            },
+            {
+              "id": "lg2",
+              "team": "green",
+              "num": "10",
+              "x": 25,
+              "y": 84
+            },
+            {
+              "id": "rb1",
+              "team": "blue",
+              "num": "6",
+              "x": 72,
+              "y": 78
+            },
+            {
+              "id": "rb2",
+              "team": "blue",
+              "num": "8",
+              "x": 84,
+              "y": 78
+            },
+            {
+              "id": "rb3",
+              "team": "blue",
+              "num": "2",
+              "x": 72,
+              "y": 88
+            },
+            {
+              "id": "rb4",
+              "team": "blue",
+              "num": "10",
+              "x": 84,
+              "y": 88
+            },
+            {
+              "id": "rg1",
+              "team": "green",
+              "num": "8",
+              "x": 76,
+              "y": 82
+            },
+            {
+              "id": "rg2",
+              "team": "green",
+              "num": "10",
+              "x": 81,
+              "y": 84
+            }
+          ],
+          "balls": [
+            {
+              "id": "ball1",
+              "x": 18,
+              "y": 79
+            }
+          ],
+          "arrows": [
+            {
+              "type": "pass",
+              "x1": 18,
+              "y1": 79,
+              "x2": 26,
+              "y2": 79
+            },
+            {
+              "type": "pass",
+              "x1": 28,
+              "y1": 80,
+              "x2": 28,
+              "y2": 86
+            }
+          ]
+        },
+        {
+          "name": "Phase 2: Green Wins Possession",
+          "note": "Green (#10) intercepts inside the left rondo box and looks forward immediately.",
+          "durationMs": 1500,
+          "players": [
+            {
+              "id": "gk1",
+              "team": "gk",
+              "num": "1",
+              "x": 50,
+              "y": 9
+            },
+            {
+              "id": "b1",
+              "team": "blue",
+              "num": "4",
+              "x": 28,
+              "y": 35
+            },
+            {
+              "id": "b2",
+              "team": "blue",
+              "num": "5",
+              "x": 52,
+              "y": 35
+            },
+            {
+              "id": "b3",
+              "team": "blue",
+              "num": "2",
+              "x": 76,
+              "y": 35
+            },
+            {
+              "id": "g1",
+              "team": "green",
+              "num": "11",
+              "x": 17,
+              "y": 46
+            },
+            {
+              "id": "g2",
+              "team": "green",
+              "num": "9",
+              "x": 43,
+              "y": 41
+            },
+            {
+              "id": "g3",
+              "team": "green",
+              "num": "7",
+              "x": 78,
+              "y": 45
+            },
+            {
+              "id": "lb1",
+              "team": "blue",
+              "num": "6",
+              "x": 16,
+              "y": 77
+            },
+            {
+              "id": "lb2",
+              "team": "blue",
+              "num": "8",
+              "x": 29,
+              "y": 79
+            },
+            {
+              "id": "lb3",
+              "team": "blue",
+              "num": "3",
+              "x": 16,
+              "y": 88
+            },
+            {
+              "id": "lb4",
+              "team": "blue",
+              "num": "10",
+              "x": 28,
+              "y": 88
+            },
+            {
+              "id": "lg1",
+              "team": "green",
+              "num": "8",
+              "x": 21,
+              "y": 79
+            },
+            {
+              "id": "lg2",
+              "team": "green",
+              "num": "10",
+              "x": 25,
+              "y": 83
+            },
+            {
+              "id": "rb1",
+              "team": "blue",
+              "num": "6",
+              "x": 72,
+              "y": 78
+            },
+            {
+              "id": "rb2",
+              "team": "blue",
+              "num": "8",
+              "x": 84,
+              "y": 78
+            },
+            {
+              "id": "rb3",
+              "team": "blue",
+              "num": "2",
+              "x": 72,
+              "y": 88
+            },
+            {
+              "id": "rb4",
+              "team": "blue",
+              "num": "10",
+              "x": 84,
+              "y": 88
+            },
+            {
+              "id": "rg1",
+              "team": "green",
+              "num": "8",
+              "x": 76,
+              "y": 82
+            },
+            {
+              "id": "rg2",
+              "team": "green",
+              "num": "10",
+              "x": 81,
+              "y": 84
+            }
+          ],
+          "balls": [
+            {
+              "id": "ball1",
+              "x": 25,
+              "y": 81
+            }
+          ],
+          "arrows": [
+            {
+              "type": "dribble",
+              "x1": 25,
+              "y1": 81,
+              "x2": 32,
+              "y2": 60
+            },
+            {
+              "type": "run",
+              "x1": 21,
+              "y1": 79,
+              "x2": 36,
+              "y2": 58
+            }
+          ]
+        },
+        {
+          "name": "Phase 3: Two Enter Attack w/ Pace",
+          "note": "Both Green rondo players burst forward into the attack. One Blue from each box (#6 & fullback) triggers recovery.",
+          "durationMs": 2000,
+          "players": [
+            {
+              "id": "gk1",
+              "team": "gk",
+              "num": "1",
+              "x": 50,
+              "y": 9
+            },
+            {
+              "id": "b1",
+              "team": "blue",
+              "num": "4",
+              "x": 28,
+              "y": 34
+            },
+            {
+              "id": "b2",
+              "team": "blue",
+              "num": "5",
+              "x": 52,
+              "y": 33
+            },
+            {
+              "id": "b3",
+              "team": "blue",
+              "num": "2",
+              "x": 75,
+              "y": 34
+            },
+            {
+              "id": "g1",
+              "team": "green",
+              "num": "11",
+              "x": 18,
+              "y": 38
+            },
+            {
+              "id": "g2",
+              "team": "green",
+              "num": "9",
+              "x": 45,
+              "y": 34
+            },
+            {
+              "id": "g3",
+              "team": "green",
+              "num": "7",
+              "x": 77,
+              "y": 37
+            },
+            {
+              "id": "lb1",
+              "team": "blue",
+              "num": "6",
+              "x": 24,
+              "y": 64
+            },
+            {
+              "id": "lb2",
+              "team": "blue",
+              "num": "8",
+              "x": 29,
+              "y": 79
+            },
+            {
+              "id": "lb3",
+              "team": "blue",
+              "num": "3",
+              "x": 16,
+              "y": 88
+            },
+            {
+              "id": "lb4",
+              "team": "blue",
+              "num": "10",
+              "x": 28,
+              "y": 88
+            },
+            {
+              "id": "lg1",
+              "team": "green",
+              "num": "8",
+              "x": 38,
+              "y": 54
+            },
+            {
+              "id": "lg2",
+              "team": "green",
+              "num": "10",
+              "x": 31,
+              "y": 57
+            },
+            {
+              "id": "rb1",
+              "team": "blue",
+              "num": "6",
+              "x": 65,
+              "y": 60
+            },
+            {
+              "id": "rb2",
+              "team": "blue",
+              "num": "8",
+              "x": 84,
+              "y": 78
+            },
+            {
+              "id": "rb3",
+              "team": "blue",
+              "num": "2",
+              "x": 72,
+              "y": 88
+            },
+            {
+              "id": "rb4",
+              "team": "blue",
+              "num": "10",
+              "x": 84,
+              "y": 88
+            },
+            {
+              "id": "rg1",
+              "team": "green",
+              "num": "8",
+              "x": 76,
+              "y": 82
+            },
+            {
+              "id": "rg2",
+              "team": "green",
+              "num": "10",
+              "x": 81,
+              "y": 84
+            }
+          ],
+          "balls": [
+            {
+              "id": "ball1",
+              "x": 32,
+              "y": 56
+            }
+          ],
+          "arrows": [
+            {
+              "type": "pass",
+              "x1": 32,
+              "y1": 56,
+              "x2": 44,
+              "y2": 36
+            },
+            {
+              "type": "run",
+              "x1": 24,
+              "y1": 64,
+              "x2": 36,
+              "y2": 45
+            },
+            {
+              "type": "run",
+              "x1": 65,
+              "y1": 60,
+              "x2": 58,
+              "y2": 42
+            }
+          ]
+        },
+        {
+          "name": "Phase 4: Recovery & Man Marking",
+          "note": "Blue #6 and fullback track back to man-mark the late Green runners. Green plays at tempo.",
+          "durationMs": 1800,
+          "players": [
+            {
+              "id": "gk1",
+              "team": "gk",
+              "num": "1",
+              "x": 49,
+              "y": 8
+            },
+            {
+              "id": "b1",
+              "team": "blue",
+              "num": "4",
+              "x": 27,
+              "y": 29
+            },
+            {
+              "id": "b2",
+              "team": "blue",
+              "num": "5",
+              "x": 51,
+              "y": 27
+            },
+            {
+              "id": "b3",
+              "team": "blue",
+              "num": "2",
+              "x": 72,
+              "y": 29
+            },
+            {
+              "id": "g1",
+              "team": "green",
+              "num": "11",
+              "x": 22,
+              "y": 27
+            },
+            {
+              "id": "g2",
+              "team": "green",
+              "num": "9",
+              "x": 47,
+              "y": 25
+            },
+            {
+              "id": "g3",
+              "team": "green",
+              "num": "7",
+              "x": 73,
+              "y": 26
+            },
+            {
+              "id": "lb1",
+              "team": "blue",
+              "num": "6",
+              "x": 35,
+              "y": 42
+            },
+            {
+              "id": "lb2",
+              "team": "blue",
+              "num": "8",
+              "x": 29,
+              "y": 79
+            },
+            {
+              "id": "lb3",
+              "team": "blue",
+              "num": "3",
+              "x": 16,
+              "y": 88
+            },
+            {
+              "id": "lb4",
+              "team": "blue",
+              "num": "10",
+              "x": 28,
+              "y": 88
+            },
+            {
+              "id": "lg1",
+              "team": "green",
+              "num": "8",
+              "x": 42,
+              "y": 38
+            },
+            {
+              "id": "lg2",
+              "team": "green",
+              "num": "10",
+              "x": 33,
+              "y": 40
+            },
+            {
+              "id": "rb1",
+              "team": "blue",
+              "num": "6",
+              "x": 58,
+              "y": 40
+            },
+            {
+              "id": "rb2",
+              "team": "blue",
+              "num": "8",
+              "x": 84,
+              "y": 78
+            },
+            {
+              "id": "rb3",
+              "team": "blue",
+              "num": "2",
+              "x": 72,
+              "y": 88
+            },
+            {
+              "id": "rb4",
+              "team": "blue",
+              "num": "10",
+              "x": 84,
+              "y": 88
+            },
+            {
+              "id": "rg1",
+              "team": "green",
+              "num": "8",
+              "x": 76,
+              "y": 82
+            },
+            {
+              "id": "rg2",
+              "team": "green",
+              "num": "10",
+              "x": 81,
+              "y": 84
+            }
+          ],
+          "balls": [
+            {
+              "id": "ball1",
+              "x": 46,
+              "y": 26
+            }
+          ],
+          "arrows": [
+            {
+              "type": "pass",
+              "x1": 46,
+              "y1": 26,
+              "x2": 66,
+              "y2": 22
+            }
+          ]
+        },
+        {
+          "name": "Phase 5: Finish on Goal",
+          "note": "Green attacks the box with 5 players for a decisive finish. Next rep: switch to right rondo box!",
+          "durationMs": 1800,
+          "players": [
+            {
+              "id": "gk1",
+              "team": "gk",
+              "num": "1",
+              "x": 53,
+              "y": 7
+            },
+            {
+              "id": "b1",
+              "team": "blue",
+              "num": "4",
+              "x": 33,
+              "y": 21
+            },
+            {
+              "id": "b2",
+              "team": "blue",
+              "num": "5",
+              "x": 50,
+              "y": 20
+            },
+            {
+              "id": "b3",
+              "team": "blue",
+              "num": "2",
+              "x": 64,
+              "y": 21
+            },
+            {
+              "id": "g1",
+              "team": "green",
+              "num": "11",
+              "x": 29,
+              "y": 19
+            },
+            {
+              "id": "g2",
+              "team": "green",
+              "num": "9",
+              "x": 48,
+              "y": 17
+            },
+            {
+              "id": "g3",
+              "team": "green",
+              "num": "7",
+              "x": 67,
+              "y": 20
+            },
+            {
+              "id": "lb1",
+              "team": "blue",
+              "num": "6",
+              "x": 39,
+              "y": 28
+            },
+            {
+              "id": "lb2",
+              "team": "blue",
+              "num": "8",
+              "x": 29,
+              "y": 79
+            },
+            {
+              "id": "lb3",
+              "team": "blue",
+              "num": "3",
+              "x": 16,
+              "y": 88
+            },
+            {
+              "id": "lb4",
+              "team": "blue",
+              "num": "10",
+              "x": 28,
+              "y": 88
+            },
+            {
+              "id": "lg1",
+              "team": "green",
+              "num": "8",
+              "x": 44,
+              "y": 27
+            },
+            {
+              "id": "lg2",
+              "team": "green",
+              "num": "10",
+              "x": 37,
+              "y": 26
+            },
+            {
+              "id": "rb1",
+              "team": "blue",
+              "num": "6",
+              "x": 57,
+              "y": 27
+            },
+            {
+              "id": "rb2",
+              "team": "blue",
+              "num": "8",
+              "x": 84,
+              "y": 78
+            },
+            {
+              "id": "rb3",
+              "team": "blue",
+              "num": "2",
+              "x": 72,
+              "y": 88
+            },
+            {
+              "id": "rb4",
+              "team": "blue",
+              "num": "10",
+              "x": 84,
+              "y": 88
+            },
+            {
+              "id": "rg1",
+              "team": "green",
+              "num": "8",
+              "x": 76,
+              "y": 82
+            },
+            {
+              "id": "rg2",
+              "team": "green",
+              "num": "10",
+              "x": 81,
+              "y": 84
+            }
+          ],
+          "balls": [
+            {
+              "id": "ball1",
+              "x": 51,
+              "y": 6
+            }
+          ],
+          "arrows": [
+            {
+              "type": "shot",
+              "x1": 66,
+              "y1": 20,
+              "x2": 51,
+              "y2": 6
+            }
+          ]
+        }
+      ],
+      "club": "Switchbacks FC",
+      "tags": [
+        "rondos",
+        "transition",
+        "shooting",
+        "game fitness"
+      ]
+    },
+    {
+      "id": "sfc-hourglass-passing-02",
+      "title": "Hour Glass Passing Pattern",
+      "date": "2026-09-01",
+      "ageGroup": "First Team",
+      "topic": "Possession",
+      "playerCount": 6,
+      "pitchType": "grid",
+      "dimensions": "20 yds x 10 yds",
+      "coachingPoints": {
+        "rondoAction": [
+          "Players w/ balls play ground pass into player in middle",
+          "Player checks around the mannequin, 1st touch diagonal & plays the other side",
+          "Follow your pass \u2014 'Hour Glass Pattern'"
+        ],
+        "generalNotes": [
+          "Always follow the pass",
+          "Different # of touches & different kinds of passes",
+          "Progress w/: give & go, lobbed passes, complete freedom"
+        ]
+      },
+      "equipment": [
+        {
+          "type": "cone",
+          "x": 32,
+          "y": 16
+        },
+        {
+          "type": "cone",
+          "x": 68,
+          "y": 16
+        },
+        {
+          "type": "cone",
+          "x": 32,
+          "y": 84
+        },
+        {
+          "type": "cone",
+          "x": 68,
+          "y": 84
+        },
+        {
+          "type": "mannequin",
+          "x": 34,
+          "y": 54
+        },
+        {
+          "type": "mannequin",
+          "x": 66,
+          "y": 54
+        }
+      ],
+      "phases": [
+        {
+          "name": "Phase 1: Check Around Mannequins",
+          "note": "Middle Blue and Red players check away around their mannequins into the central pocket.",
+          "durationMs": 1500,
+          "players": [
+            {
+              "id": "hg-b1",
+              "team": "blue",
+              "num": "1",
+              "x": 32,
+              "y": 11
+            },
+            {
+              "id": "hg-r1",
+              "team": "red",
+              "num": "2",
+              "x": 68,
+              "y": 11
+            },
+            {
+              "id": "hg-b2",
+              "team": "blue",
+              "num": "3",
+              "x": 27,
+              "y": 57
+            },
+            {
+              "id": "hg-r2",
+              "team": "red",
+              "num": "4",
+              "x": 73,
+              "y": 57
+            },
+            {
+              "id": "hg-r3",
+              "team": "red",
+              "num": "5",
+              "x": 32,
+              "y": 89
+            },
+            {
+              "id": "hg-b3",
+              "team": "blue",
+              "num": "6",
+              "x": 68,
+              "y": 89
+            }
+          ],
+          "balls": [
+            {
+              "id": "hg-ball1",
+              "x": 27,
+              "y": 12
+            },
+            {
+              "id": "hg-ball2",
+              "x": 73,
+              "y": 12
+            },
+            {
+              "id": "hg-ball3",
+              "x": 32,
+              "y": 93
+            },
+            {
+              "id": "hg-ball4",
+              "x": 68,
+              "y": 93
+            }
+          ],
+          "arrows": [
+            {
+              "type": "run",
+              "x1": 27,
+              "y1": 57,
+              "x2": 43,
+              "y2": 58
+            },
+            {
+              "type": "run",
+              "x1": 73,
+              "y1": 57,
+              "x2": 57,
+              "y2": 58
+            }
+          ]
+        },
+        {
+          "name": "Phase 2: Ground Pass to Middle",
+          "note": "Top-right Red plays diagonal ground pass into checking Red; bottom Red plays into checking Blue.",
+          "durationMs": 1600,
+          "players": [
+            {
+              "id": "hg-b1",
+              "team": "blue",
+              "num": "1",
+              "x": 32,
+              "y": 11
+            },
+            {
+              "id": "hg-r1",
+              "team": "red",
+              "num": "2",
+              "x": 68,
+              "y": 11
+            },
+            {
+              "id": "hg-b2",
+              "team": "blue",
+              "num": "3",
+              "x": 44,
+              "y": 58
+            },
+            {
+              "id": "hg-r2",
+              "team": "red",
+              "num": "4",
+              "x": 56,
+              "y": 58
+            },
+            {
+              "id": "hg-r3",
+              "team": "red",
+              "num": "5",
+              "x": 32,
+              "y": 89
+            },
+            {
+              "id": "hg-b3",
+              "team": "blue",
+              "num": "6",
+              "x": 68,
+              "y": 89
+            }
+          ],
+          "balls": [
+            {
+              "id": "hg-ball1",
+              "x": 27,
+              "y": 12
+            },
+            {
+              "id": "hg-ball2",
+              "x": 56,
+              "y": 55
+            },
+            {
+              "id": "hg-ball3",
+              "x": 44,
+              "y": 61
+            },
+            {
+              "id": "hg-ball4",
+              "x": 68,
+              "y": 93
+            }
+          ],
+          "arrows": [
+            {
+              "type": "pass",
+              "x1": 68,
+              "y1": 15,
+              "x2": 56,
+              "y2": 55
+            },
+            {
+              "type": "pass",
+              "x1": 32,
+              "y1": 84,
+              "x2": 44,
+              "y2": 61
+            }
+          ]
+        },
+        {
+          "name": "Phase 3: Diagonal Touch & Play Opposite",
+          "note": "Middle receivers take a diagonal touch and pass across to the opposite corner cone.",
+          "durationMs": 1700,
+          "players": [
+            {
+              "id": "hg-b1",
+              "team": "blue",
+              "num": "1",
+              "x": 32,
+              "y": 11
+            },
+            {
+              "id": "hg-r1",
+              "team": "red",
+              "num": "2",
+              "x": 68,
+              "y": 18
+            },
+            {
+              "id": "hg-b2",
+              "team": "blue",
+              "num": "3",
+              "x": 46,
+              "y": 54
+            },
+            {
+              "id": "hg-r2",
+              "team": "red",
+              "num": "4",
+              "x": 54,
+              "y": 54
+            },
+            {
+              "id": "hg-r3",
+              "team": "red",
+              "num": "5",
+              "x": 32,
+              "y": 82
+            },
+            {
+              "id": "hg-b3",
+              "team": "blue",
+              "num": "6",
+              "x": 68,
+              "y": 89
+            }
+          ],
+          "balls": [
+            {
+              "id": "hg-ball1",
+              "x": 27,
+              "y": 12
+            },
+            {
+              "id": "hg-ball2",
+              "x": 34,
+              "y": 20
+            },
+            {
+              "id": "hg-ball3",
+              "x": 66,
+              "y": 82
+            },
+            {
+              "id": "hg-ball4",
+              "x": 68,
+              "y": 93
+            }
+          ],
+          "arrows": [
+            {
+              "type": "pass",
+              "x1": 54,
+              "y1": 54,
+              "x2": 34,
+              "y2": 20
+            },
+            {
+              "type": "pass",
+              "x1": 46,
+              "y1": 54,
+              "x2": 66,
+              "y2": 82
+            }
+          ]
+        },
+        {
+          "name": "Phase 4: Follow Your Pass",
+          "note": "Passers sprint to replace the central mannequin spots; receivers follow their pass to the corner.",
+          "durationMs": 1700,
+          "players": [
+            {
+              "id": "hg-b1",
+              "team": "blue",
+              "num": "1",
+              "x": 32,
+              "y": 11
+            },
+            {
+              "id": "hg-r1",
+              "team": "red",
+              "num": "2",
+              "x": 73,
+              "y": 57
+            },
+            {
+              "id": "hg-b2",
+              "team": "blue",
+              "num": "3",
+              "x": 66,
+              "y": 86
+            },
+            {
+              "id": "hg-r2",
+              "team": "red",
+              "num": "4",
+              "x": 34,
+              "y": 14
+            },
+            {
+              "id": "hg-r3",
+              "team": "red",
+              "num": "5",
+              "x": 27,
+              "y": 57
+            },
+            {
+              "id": "hg-b3",
+              "team": "blue",
+              "num": "6",
+              "x": 68,
+              "y": 89
+            }
+          ],
+          "balls": [
+            {
+              "id": "hg-ball1",
+              "x": 32,
+              "y": 15
+            },
+            {
+              "id": "hg-ball2",
+              "x": 68,
+              "y": 15
+            },
+            {
+              "id": "hg-ball3",
+              "x": 68,
+              "y": 89
+            },
+            {
+              "id": "hg-ball4",
+              "x": 32,
+              "y": 89
+            }
+          ],
+          "arrows": [
+            {
+              "type": "pass",
+              "x1": 34,
+              "y1": 14,
+              "x2": 66,
+              "y2": 14
+            },
+            {
+              "type": "pass",
+              "x1": 34,
+              "y1": 89,
+              "x2": 64,
+              "y2": 89
+            }
+          ]
+        }
+      ],
+      "club": "Switchbacks FC",
+      "tags": [
+        "passing",
+        "technical"
+      ]
+    },
+    {
+      "id": "sfc-stick-turn-03",
+      "title": "Mannequin Check-Away & Stick Turn",
+      "date": "2026-08-25",
+      "ageGroup": "First Team",
+      "topic": "1v1 / Dribbling",
+      "playerCount": 2,
+      "pitchType": "grid",
+      "dimensions": "5\u20138 yds / 3\u20135 yds / 11 yds",
+      "coachingPoints": {
+        "rondoAction": [
+          "Player with the ball plays to the stick",
+          "Player at the mannequin checks away to the stick, then turns"
+        ],
+        "generalNotes": [
+          "Different progressions",
+          "Give & go's",
+          "Short, then long",
+          "Freedom"
+        ]
+      },
+      "equipment": [
+        {
+          "type": "cone",
+          "x": 50,
+          "y": 12
+        },
+        {
+          "type": "cone",
+          "x": 50,
+          "y": 86
+        },
+        {
+          "type": "mannequin",
+          "x": 42,
+          "y": 48
+        },
+        {
+          "type": "mannequin",
+          "x": 58,
+          "y": 48
+        },
+        {
+          "type": "stick",
+          "x": 20,
+          "y": 48
+        },
+        {
+          "type": "stick",
+          "x": 80,
+          "y": 48
+        }
+      ],
+      "phases": [
+        {
+          "name": "Phase 1: Mannequin Setup",
+          "note": "Server starts at the bottom cone with the ball; receiver holds tight to the right mannequin.",
+          "durationMs": 1400,
+          "players": [
+            {
+              "id": "st-p1",
+              "team": "blue",
+              "num": "1",
+              "x": 53,
+              "y": 86
+            },
+            {
+              "id": "st-p2",
+              "team": "blue",
+              "num": "2",
+              "x": 63,
+              "y": 50
+            }
+          ],
+          "balls": [
+            {
+              "id": "st-b1",
+              "x": 56,
+              "y": 83
+            }
+          ],
+          "arrows": [
+            {
+              "type": "run",
+              "x1": 63,
+              "y1": 50,
+              "x2": 83,
+              "y2": 52
+            },
+            {
+              "type": "pass",
+              "x1": 56,
+              "y1": 83,
+              "x2": 79,
+              "y2": 53
+            }
+          ]
+        },
+        {
+          "name": "Phase 2: Check Away & Pass to Stick",
+          "note": "Receiver checks away outside the red stick while server drives a crisp pass toward the stick.",
+          "durationMs": 1600,
+          "players": [
+            {
+              "id": "st-p1",
+              "team": "blue",
+              "num": "1",
+              "x": 53,
+              "y": 80
+            },
+            {
+              "id": "st-p2",
+              "team": "blue",
+              "num": "2",
+              "x": 84,
+              "y": 51
+            }
+          ],
+          "balls": [
+            {
+              "id": "st-b1",
+              "x": 81,
+              "y": 51
+            }
+          ],
+          "arrows": [
+            {
+              "type": "dribble",
+              "x1": 84,
+              "y1": 51,
+              "x2": 66,
+              "y2": 28
+            }
+          ]
+        },
+        {
+          "name": "Phase 3: Turn & Drive Upfield",
+          "note": "Receiver turns cleanly around the stick and accelerates diagonally toward the top 11-yd cone.",
+          "durationMs": 1600,
+          "players": [
+            {
+              "id": "st-p1",
+              "team": "blue",
+              "num": "1",
+              "x": 58,
+              "y": 60
+            },
+            {
+              "id": "st-p2",
+              "team": "blue",
+              "num": "2",
+              "x": 62,
+              "y": 24
+            }
+          ],
+          "balls": [
+            {
+              "id": "st-b1",
+              "x": 60,
+              "y": 22
+            }
+          ],
+          "arrows": [
+            {
+              "type": "dribble",
+              "x1": 60,
+              "y1": 22,
+              "x2": 52,
+              "y2": 14
+            }
+          ]
+        },
+        {
+          "name": "Phase 4: Finish at Top Cone & Rotate",
+          "note": "Receiver reaches the top cone; server moves up to the mannequin for the next rep (alternate left/right).",
+          "durationMs": 1500,
+          "players": [
+            {
+              "id": "st-p1",
+              "team": "blue",
+              "num": "1",
+              "x": 62,
+              "y": 50
+            },
+            {
+              "id": "st-p2",
+              "team": "blue",
+              "num": "2",
+              "x": 50,
+              "y": 15
+            }
+          ],
+          "balls": [
+            {
+              "id": "st-b1",
+              "x": 50,
+              "y": 13
+            }
+          ],
+          "arrows": []
+        }
+      ],
+      "club": "Switchbacks FC",
+      "tags": [
+        "technical",
+        "passing"
+      ]
+    },
+    {
+      "id": "sm-passing-pattern-04",
+      "title": "Quick Box Turn & Escape (3x3 yds)",
+      "date": "2026-09-01",
+      "ageGroup": "First Team",
+      "topic": "1v1 / Dribbling",
+      "playerCount": 4,
+      "pitchType": "grid",
+      "dimensions": "3x3 yd Box + 5\u20138 yd Cones",
+      "coachingPoints": {
+        "rondoAction": [
+          "Player w/ the ball passes clean to player in box",
+          "Player receives the ball & central turn out of the box",
+          "Dribbles back to same side cone w/ ball"
+        ],
+        "generalNotes": [
+          "Very quick drill, in & out",
+          "Only one player in the box at a time, sides should alternate",
+          "Practice different kinds of turns",
+          "Progress to give & go's (check in, check out)",
+          "Tight space w/ cones"
+        ]
+      },
+      "equipment": [
+        {
+          "type": "cone",
+          "x": 56,
+          "y": 10
+        },
+        {
+          "type": "cone",
+          "x": 44,
+          "y": 90
+        },
+        {
+          "type": "cone-orange",
+          "x": 38,
+          "y": 38
+        },
+        {
+          "type": "cone-orange",
+          "x": 62,
+          "y": 38
+        },
+        {
+          "type": "cone-orange",
+          "x": 38,
+          "y": 62
+        },
+        {
+          "type": "cone-orange",
+          "x": 62,
+          "y": 62
+        }
+      ],
+      "phases": [
+        {
+          "name": "Phase 1: Top Pass Into Box (Green)",
+          "note": "Top Green server passes cleanly into the Green player inside the tight 3x3 cone box.",
+          "durationMs": 1400,
+          "players": [
+            {
+              "id": "sm-g1",
+              "team": "green",
+              "num": "1",
+              "x": 60,
+              "y": 11
+            },
+            {
+              "id": "sm-g2",
+              "team": "green",
+              "num": "2",
+              "x": 50,
+              "y": 42
+            },
+            {
+              "id": "sm-b1",
+              "team": "blue",
+              "num": "1",
+              "x": 40,
+              "y": 89
+            },
+            {
+              "id": "sm-b2",
+              "team": "blue",
+              "num": "2",
+              "x": 50,
+              "y": 72
+            }
+          ],
+          "balls": [
+            {
+              "id": "sm-ball1",
+              "x": 51,
+              "y": 38
+            },
+            {
+              "id": "sm-ball2",
+              "x": 44,
+              "y": 84
+            }
+          ],
+          "arrows": [
+            {
+              "type": "pass",
+              "x1": 57,
+              "y1": 15,
+              "x2": 51,
+              "y2": 38
+            }
+          ]
+        },
+        {
+          "name": "Phase 2: Central Turn & Escape (Green)",
+          "note": "Green executes a central turn out the right side of the box and dribbles back to the top cone.",
+          "durationMs": 1600,
+          "players": [
+            {
+              "id": "sm-g1",
+              "team": "green",
+              "num": "1",
+              "x": 60,
+              "y": 11
+            },
+            {
+              "id": "sm-g2",
+              "team": "green",
+              "num": "2",
+              "x": 69,
+              "y": 24
+            },
+            {
+              "id": "sm-b1",
+              "team": "blue",
+              "num": "1",
+              "x": 40,
+              "y": 89
+            },
+            {
+              "id": "sm-b2",
+              "team": "blue",
+              "num": "2",
+              "x": 50,
+              "y": 58
+            }
+          ],
+          "balls": [
+            {
+              "id": "sm-ball1",
+              "x": 67,
+              "y": 22
+            },
+            {
+              "id": "sm-ball2",
+              "x": 44,
+              "y": 84
+            }
+          ],
+          "arrows": [
+            {
+              "type": "dribble",
+              "x1": 52,
+              "y1": 44,
+              "x2": 69,
+              "y2": 24
+            }
+          ]
+        },
+        {
+          "name": "Phase 3: Alternate Side \u2014 Bottom Pass (Blue)",
+          "note": "Only one player in the box at a time: Blue steps in and receives the clean pass from bottom Blue.",
+          "durationMs": 1400,
+          "players": [
+            {
+              "id": "sm-g1",
+              "team": "green",
+              "num": "1",
+              "x": 56,
+              "y": 16
+            },
+            {
+              "id": "sm-g2",
+              "team": "green",
+              "num": "2",
+              "x": 60,
+              "y": 11
+            },
+            {
+              "id": "sm-b1",
+              "team": "blue",
+              "num": "1",
+              "x": 40,
+              "y": 89
+            },
+            {
+              "id": "sm-b2",
+              "team": "blue",
+              "num": "2",
+              "x": 50,
+              "y": 58
+            }
+          ],
+          "balls": [
+            {
+              "id": "sm-ball1",
+              "x": 56,
+              "y": 14
+            },
+            {
+              "id": "sm-ball2",
+              "x": 49,
+              "y": 62
+            }
+          ],
+          "arrows": [
+            {
+              "type": "pass",
+              "x1": 45,
+              "y1": 83,
+              "x2": 49,
+              "y2": 62
+            }
+          ]
+        },
+        {
+          "name": "Phase 4: Central Turn & Escape (Blue)",
+          "note": "Blue turns out the left side of the box and dribbles back to the bottom cone at high tempo.",
+          "durationMs": 1600,
+          "players": [
+            {
+              "id": "sm-g1",
+              "team": "green",
+              "num": "1",
+              "x": 50,
+              "y": 42
+            },
+            {
+              "id": "sm-g2",
+              "team": "green",
+              "num": "2",
+              "x": 60,
+              "y": 11
+            },
+            {
+              "id": "sm-b1",
+              "team": "blue",
+              "num": "1",
+              "x": 40,
+              "y": 89
+            },
+            {
+              "id": "sm-b2",
+              "team": "blue",
+              "num": "2",
+              "x": 31,
+              "y": 76
+            }
+          ],
+          "balls": [
+            {
+              "id": "sm-ball1",
+              "x": 56,
+              "y": 14
+            },
+            {
+              "id": "sm-ball2",
+              "x": 33,
+              "y": 78
+            }
+          ],
+          "arrows": [
+            {
+              "type": "dribble",
+              "x1": 48,
+              "y1": 56,
+              "x2": 31,
+              "y2": 76
+            }
+          ]
+        }
+      ],
+      "club": "Switchbacks FC",
+      "tags": [
+        "technical",
+        "passing"
+      ]
+    },
+    {
+      "id": "switchbacks-breaking-lines-05",
+      "title": "Breaking Lines \u2014 Simeone Half-Field",
+      "date": "2026-07-08",
+      "ageGroup": "First Team",
+      "topic": "Transition",
+      "playerCount": 24,
+      "pitchType": "grid",
+      "dimensions": "Half Field (5 Horizontal Zones + 2 Goals)",
+      "coachingPoints": {
+        "towardGoal": [
+          "Simple breaking lines & constant shifting",
+          "Break line to forwards, then score",
+          "Defense: Shift, then recovery run to defend shots",
+          "Attack: Quick shot on keeper"
+        ],
+        "generalNotes": [
+          "Pressure, cover, balance",
+          "Constant shifting",
+          "One touch, tempo",
+          "Creativity, dummy runs, intensity, quick shots"
+        ]
+      },
+      "equipment": [
+        {
+          "type": "zone",
+          "x": 16,
+          "y": 6,
+          "w": 68,
+          "h": 88,
+          "label": ""
+        },
+        {
+          "type": "goal-main",
+          "x": 50,
+          "y": 6
+        },
+        {
+          "type": "goal-main-bottom",
+          "x": 50,
+          "y": 94
+        },
+        {
+          "type": "zone-line",
+          "x1": 16,
+          "y": 21,
+          "x2": 84
+        },
+        {
+          "type": "zone-line",
+          "x1": 16,
+          "y": 35,
+          "x2": 84
+        },
+        {
+          "type": "zone-line",
+          "x1": 16,
+          "y": 50,
+          "x2": 84
+        },
+        {
+          "type": "zone-line",
+          "x1": 16,
+          "y": 64,
+          "x2": 84
+        },
+        {
+          "type": "zone-line",
+          "x1": 16,
+          "y": 79,
+          "x2": 84
+        }
+      ],
+      "phases": [
+        {
+          "name": "Phase 1: Zone Shape & Shifting",
+          "note": "Teams hold their horizontal zones. Blue shifts laterally to screen passing lanes; Red looks to break lines.",
+          "durationMs": 1700,
+          "players": [
+            {
+              "id": "bl-gk1",
+              "team": "gk",
+              "num": "1",
+              "x": 50,
+              "y": 8
+            },
+            {
+              "id": "bl-gk2",
+              "team": "gk",
+              "num": "1",
+              "x": 50,
+              "y": 92
+            },
+            {
+              "id": "bl-t1",
+              "team": "gold",
+              "num": "N",
+              "x": 34,
+              "y": 16
+            },
+            {
+              "id": "bl-r1",
+              "team": "red",
+              "num": "9",
+              "x": 39,
+              "y": 15
+            },
+            {
+              "id": "bl-r2",
+              "team": "red",
+              "num": "10",
+              "x": 56,
+              "y": 14
+            },
+            {
+              "id": "bl-t2",
+              "team": "gold",
+              "num": "N",
+              "x": 62,
+              "y": 16
+            },
+            {
+              "id": "bl-b1",
+              "team": "blue",
+              "num": "3",
+              "x": 24,
+              "y": 28
+            },
+            {
+              "id": "bl-b2",
+              "team": "blue",
+              "num": "4",
+              "x": 40,
+              "y": 28
+            },
+            {
+              "id": "bl-b3",
+              "team": "blue",
+              "num": "5",
+              "x": 60,
+              "y": 28
+            },
+            {
+              "id": "bl-b4",
+              "team": "blue",
+              "num": "2",
+              "x": 76,
+              "y": 28
+            },
+            {
+              "id": "bl-r3",
+              "team": "red",
+              "num": "11",
+              "x": 32,
+              "y": 42
+            },
+            {
+              "id": "bl-r4",
+              "team": "red",
+              "num": "8",
+              "x": 50,
+              "y": 42
+            },
+            {
+              "id": "bl-r5",
+              "team": "red",
+              "num": "7",
+              "x": 68,
+              "y": 42
+            },
+            {
+              "id": "bl-b5",
+              "team": "blue",
+              "num": "11",
+              "x": 28,
+              "y": 57
+            },
+            {
+              "id": "bl-b6",
+              "team": "blue",
+              "num": "6",
+              "x": 50,
+              "y": 57
+            },
+            {
+              "id": "bl-b7",
+              "team": "blue",
+              "num": "7",
+              "x": 72,
+              "y": 57
+            },
+            {
+              "id": "bl-r6",
+              "team": "red",
+              "num": "3",
+              "x": 24,
+              "y": 71
+            },
+            {
+              "id": "bl-r7",
+              "team": "red",
+              "num": "4",
+              "x": 40,
+              "y": 71
+            },
+            {
+              "id": "bl-r8",
+              "team": "red",
+              "num": "5",
+              "x": 60,
+              "y": 71
+            },
+            {
+              "id": "bl-r9",
+              "team": "red",
+              "num": 2,
+              "x": 76,
+              "y": 71
+            },
+            {
+              "id": "bl-b8",
+              "team": "blue",
+              "num": "9",
+              "x": 34,
+              "y": 85
+            },
+            {
+              "id": "bl-t3",
+              "team": "gold",
+              "num": "N",
+              "x": 39,
+              "y": 85
+            },
+            {
+              "id": "bl-t4",
+              "team": "gold",
+              "num": "N",
+              "x": 62,
+              "y": 85
+            },
+            {
+              "id": "bl-b9",
+              "team": "blue",
+              "num": "10",
+              "x": 68,
+              "y": 85
+            }
+          ],
+          "balls": [
+            {
+              "id": "bl-ball",
+              "x": 46,
+              "y": 44
+            }
+          ],
+          "arrows": [
+            {
+              "type": "pass",
+              "x1": 46,
+              "y1": 44,
+              "x2": 55,
+              "y2": 17
+            }
+          ]
+        },
+        {
+          "name": "Phase 2: Break Line to Forwards",
+          "note": "Red #8 splits the 4-player Blue line with a vertical pass into Red #10 in the top zone.",
+          "durationMs": 1700,
+          "players": [
+            {
+              "id": "bl-gk1",
+              "team": "gk",
+              "num": "1",
+              "x": 50,
+              "y": 8
+            },
+            {
+              "id": "bl-gk2",
+              "team": "gk",
+              "num": "1",
+              "x": 50,
+              "y": 92
+            },
+            {
+              "id": "bl-t1",
+              "team": "gold",
+              "num": "N",
+              "x": 34,
+              "y": 16
+            },
+            {
+              "id": "bl-r1",
+              "team": "red",
+              "num": "9",
+              "x": 41,
+              "y": 15
+            },
+            {
+              "id": "bl-r2",
+              "team": "red",
+              "num": "10",
+              "x": 55,
+              "y": 16
+            },
+            {
+              "id": "bl-t2",
+              "team": "gold",
+              "num": "N",
+              "x": 62,
+              "y": 16
+            },
+            {
+              "id": "bl-b1",
+              "team": "blue",
+              "num": "3",
+              "x": 29,
+              "y": 27
+            },
+            {
+              "id": "bl-b2",
+              "team": "blue",
+              "num": "4",
+              "x": 43,
+              "y": 27
+            },
+            {
+              "id": "bl-b3",
+              "team": "blue",
+              "num": "5",
+              "x": 58,
+              "y": 27
+            },
+            {
+              "id": "bl-b4",
+              "team": "blue",
+              "num": "2",
+              "x": 74,
+              "y": 27
+            },
+            {
+              "id": "bl-r3",
+              "team": "red",
+              "num": "11",
+              "x": 34,
+              "y": 40
+            },
+            {
+              "id": "bl-r4",
+              "team": "red",
+              "num": "8",
+              "x": 50,
+              "y": 41
+            },
+            {
+              "id": "bl-r5",
+              "team": "red",
+              "num": "7",
+              "x": 66,
+              "y": 40
+            },
+            {
+              "id": "bl-b5",
+              "team": "blue",
+              "num": "11",
+              "x": 30,
+              "y": 56
+            },
+            {
+              "id": "bl-b6",
+              "team": "blue",
+              "num": "6",
+              "x": 50,
+              "y": 56
+            },
+            {
+              "id": "bl-b7",
+              "team": "blue",
+              "num": "7",
+              "x": 70,
+              "y": 56
+            },
+            {
+              "id": "bl-r6",
+              "team": "red",
+              "num": "3",
+              "x": 24,
+              "y": 71
+            },
+            {
+              "id": "bl-r7",
+              "team": "red",
+              "num": "4",
+              "x": 40,
+              "y": 71
+            },
+            {
+              "id": "bl-r8",
+              "team": "red",
+              "num": "5",
+              "x": 60,
+              "y": 71
+            },
+            {
+              "id": "bl-r9",
+              "team": "red",
+              "num": "2",
+              "x": 76,
+              "y": 71
+            },
+            {
+              "id": "bl-b8",
+              "team": "blue",
+              "num": "9",
+              "x": 34,
+              "y": 85
+            },
+            {
+              "id": "bl-t3",
+              "team": "gold",
+              "num": "N",
+              "x": 39,
+              "y": 85
+            },
+            {
+              "id": "bl-t4",
+              "team": "gold",
+              "num": "N",
+              "x": 62,
+              "y": 85
+            },
+            {
+              "id": "bl-b9",
+              "team": "blue",
+              "num": "10",
+              "x": 68,
+              "y": 85
+            }
+          ],
+          "balls": [
+            {
+              "id": "bl-ball",
+              "x": 54,
+              "y": 17
+            }
+          ],
+          "arrows": [
+            {
+              "type": "run",
+              "x1": 43,
+              "y1": 27,
+              "x2": 45,
+              "y2": 18
+            },
+            {
+              "type": "run",
+              "x1": 58,
+              "y1": 27,
+              "x2": 56,
+              "y2": 18
+            },
+            {
+              "type": "pass",
+              "x1": 55,
+              "y1": 16,
+              "x2": 43,
+              "y2": 15
+            }
+          ]
+        },
+        {
+          "name": "Phase 3: Recovery Run & Quick Shot",
+          "note": "Blue defenders sprint back to block while Red #9 strikes one-touch on the Purple keeper.",
+          "durationMs": 1700,
+          "players": [
+            {
+              "id": "bl-gk1",
+              "team": "gk",
+              "num": "1",
+              "x": 48,
+              "y": 8
+            },
+            {
+              "id": "bl-gk2",
+              "team": "gk",
+              "num": "1",
+              "x": 50,
+              "y": 92
+            },
+            {
+              "id": "bl-t1",
+              "team": "gold",
+              "num": "N",
+              "x": 34,
+              "y": 16
+            },
+            {
+              "id": "bl-r1",
+              "team": "red",
+              "num": "9",
+              "x": 43,
+              "y": 14
+            },
+            {
+              "id": "bl-r2",
+              "team": "red",
+              "num": "10",
+              "x": 56,
+              "y": 15
+            },
+            {
+              "id": "bl-t2",
+              "team": "gold",
+              "num": "N",
+              "x": 62,
+              "y": 16
+            },
+            {
+              "id": "bl-b1",
+              "team": "blue",
+              "num": "3",
+              "x": 32,
+              "y": 21
+            },
+            {
+              "id": "bl-b2",
+              "team": "blue",
+              "num": "4",
+              "x": 45,
+              "y": 18
+            },
+            {
+              "id": "bl-b3",
+              "team": "blue",
+              "num": "5",
+              "x": 56,
+              "y": 18
+            },
+            {
+              "id": "bl-b4",
+              "team": "blue",
+              "num": "2",
+              "x": 69,
+              "y": 21
+            },
+            {
+              "id": "bl-r3",
+              "team": "red",
+              "num": "11",
+              "x": 34,
+              "y": 40
+            },
+            {
+              "id": "bl-r4",
+              "team": "red",
+              "num": "8",
+              "x": 50,
+              "y": 41
+            },
+            {
+              "id": "bl-r5",
+              "team": "red",
+              "num": "7",
+              "x": 66,
+              "y": 40
+            },
+            {
+              "id": "bl-b5",
+              "team": "blue",
+              "num": "11",
+              "x": 30,
+              "y": 56
+            },
+            {
+              "id": "bl-b6",
+              "team": "blue",
+              "num": "6",
+              "x": 50,
+              "y": 56
+            },
+            {
+              "id": "bl-b7",
+              "team": "blue",
+              "num": "7",
+              "x": 70,
+              "y": 56
+            },
+            {
+              "id": "bl-r6",
+              "team": "red",
+              "num": "3",
+              "x": 24,
+              "y": 71
+            },
+            {
+              "id": "bl-r7",
+              "team": "red",
+              "num": "4",
+              "x": 40,
+              "y": 71
+            },
+            {
+              "id": "bl-r8",
+              "team": "red",
+              "num": "5",
+              "x": 60,
+              "y": 71
+            },
+            {
+              "id": "bl-r9",
+              "team": "red",
+              "num": "2",
+              "x": 76,
+              "y": 71
+            },
+            {
+              "id": "bl-b8",
+              "team": "blue",
+              "num": "9",
+              "x": 34,
+              "y": 85
+            },
+            {
+              "id": "bl-t3",
+              "team": "gold",
+              "num": "N",
+              "x": 39,
+              "y": 85
+            },
+            {
+              "id": "bl-t4",
+              "team": "gold",
+              "num": "N",
+              "x": 62,
+              "y": 85
+            },
+            {
+              "id": "bl-b9",
+              "team": "blue",
+              "num": "10",
+              "x": 68,
+              "y": 85
+            }
+          ],
+          "balls": [
+            {
+              "id": "bl-ball",
+              "x": 49,
+              "y": 6
+            }
+          ],
+          "arrows": [
+            {
+              "type": "shot",
+              "x1": 43,
+              "y1": 14,
+              "x2": 49,
+              "y2": 6
+            }
+          ]
+        }
+      ],
+      "club": "Switchbacks FC",
+      "tags": [
+        "transition",
+        "passing",
+        "shooting",
+        "game fitness"
       ]
     }
   ]
@@ -252,27 +2567,43 @@ async function init() {
 }
 
 async function loadPlaybook() {
+  let baseData = structuredClone(FALLBACK_PLAYBOOK);
+  try {
+    const res = await fetch("playbook.json", { cache: "no-store" });
+    if (res.ok) {
+      baseData = await res.json();
+    }
+  } catch (_) {}
+
   const cached = localStorage.getItem(STORAGE_KEY);
   if (cached) {
     try {
       const parsed = JSON.parse(cached);
       if (parsed && Array.isArray(parsed.drills) && parsed.drills.length > 0) {
+        const baseMap = new Map((baseData.drills || []).map((d) => [d.id, d]));
+        let changed = false;
+        parsed.drills = parsed.drills.map((d) => {
+          const base = baseMap.get(d.id);
+          if (base && (JSON.stringify(d.tags) !== JSON.stringify(base.tags) || d.ageGroup !== base.ageGroup || d.club !== base.club)) {
+            changed = true;
+            return { ...d, ageGroup: base.ageGroup, club: base.club, tags: base.tags };
+          }
+          return d;
+        });
+        const existingIds = new Set(parsed.drills.map((d) => d.id));
+        const newDefaults = (baseData.drills || []).filter((d) => !existingIds.has(d.id));
+        if (newDefaults.length > 0) {
+          parsed.drills = [...parsed.drills, ...newDefaults];
+          changed = true;
+        }
+        if (changed) savePlaybook(parsed);
         return parsed;
       }
     } catch (_) {}
   }
 
-  try {
-    const res = await fetch("playbook.json", { cache: "no-store" });
-    if (res.ok) {
-      const data = await res.json();
-      savePlaybook(data);
-      return data;
-    }
-  } catch (_) {}
-
-  savePlaybook(FALLBACK_PLAYBOOK);
-  return structuredClone(FALLBACK_PLAYBOOK);
+  savePlaybook(baseData);
+  return baseData;
 }
 
 function savePlaybook(data = state.playbook) {
@@ -325,13 +2656,16 @@ function renderDrillList() {
   const pCount = el("filterPlayers").value;
 
   const filtered = state.playbook.drills.filter((d) => {
+    const drillTags = Array.isArray(d.tags) ? d.tags : [];
     const matchesSearch =
       !query ||
       d.title.toLowerCase().includes(query) ||
       (d.topic || "").toLowerCase().includes(query) ||
+      (d.club || "").toLowerCase().includes(query) ||
+      drillTags.some((t) => t.toLowerCase().includes(query)) ||
       JSON.stringify(d.coachingPoints || {}).toLowerCase().includes(query);
     const matchesAge = age === "all" || d.ageGroup === age;
-    const matchesTopic = topic === "all" || d.topic === topic;
+    const matchesTopic = topic === "all" || drillTags.includes(topic) || (d.topic || "").toLowerCase() === topic.toLowerCase();
     const count = Number(d.playerCount || 0);
     const matchesCount =
       pCount === "all" ||
@@ -354,7 +2688,7 @@ function renderDrillList() {
     card.className = `drill-card ${d.id === state.activeDrillId ? "active" : ""}`;
     card.innerHTML = `
       <div class="drill-card-title">${escapeHtml(d.title)}</div>
-      <div class="drill-card-meta">${escapeHtml(d.ageGroup || "U10")} · ${escapeHtml(d.topic || "General")} · ${d.playerCount || 0}P</div>
+      <div class="drill-card-meta">${escapeHtml(d.club ? d.club + " " : "")}${escapeHtml(d.ageGroup || "First Team")} · ${(d.tags || [d.topic || "General"]).map(escapeHtml).join(", ")} · ${d.playerCount || 0}P</div>
     `;
     card.onclick = () => {
       state.activeDrillId = d.id;
@@ -373,7 +2707,8 @@ function renderActiveDrillHeader() {
   if (!drill) return;
   el("activeDrillTitle").textContent = drill.title;
   el("pitchTypeSelect").value = drill.pitchType || "half-vertical";
-  const parts = [drill.ageGroup, drill.topic, `${drill.playerCount || 0} Players`, drill.dimensions].filter(Boolean);
+  const tagText = Array.isArray(drill.tags) && drill.tags.length ? drill.tags.join(" · ") : drill.topic;
+  const parts = [drill.club, drill.ageGroup, tagText, `${drill.playerCount || 0} Players`].filter(Boolean);
   el("activeDrillMeta").textContent = parts.join(" · ");
 }
 
@@ -854,6 +3189,18 @@ function bindEvents() {
   el("cancelMetaBtn").onclick = () => el("metaModal").classList.add("hidden");
   el("saveMetaBtn").onclick = saveMetaModal;
 
+  el("btnSyncSettings").onclick = () => {
+    el("moreDropdown").classList.add("hidden");
+    openSyncModal();
+  };
+  el("closeSyncModal").onclick = () => el("syncModal").classList.add("hidden");
+  el("cancelSyncBtn").onclick = () => el("syncModal").classList.add("hidden");
+  el("saveSyncBtn").onclick = saveSyncSettings;
+  el("btnCloudPush").onclick = () => {
+    el("moreDropdown").classList.add("hidden");
+    pushPlaybookToGitHub();
+  };
+
   el("btnCopyEmbed").onclick = () => {
     el("moreDropdown").classList.add("hidden");
     const drill = getActiveDrill();
@@ -1043,6 +3390,89 @@ function saveMetaModal() {
 
 function escapeHtml(str) {
   return String(str).replace(/[&<>"']/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
+}
+
+
+function getSyncConfig() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(SYNC_KEY) || "{}");
+    return {
+      repo: raw.repo || "nblanco1213/blanco-tactical-studio",
+      branch: raw.branch || "main",
+      token: raw.token || ""
+    };
+  } catch (_) {
+    return { repo: "nblanco1213/blanco-tactical-studio", branch: "main", token: "" };
+  }
+}
+
+function openSyncModal() {
+  const cfg = getSyncConfig();
+  el("syncRepo").value = cfg.repo;
+  el("syncBranch").value = cfg.branch;
+  el("syncToken").value = cfg.token;
+  el("syncModal").classList.remove("hidden");
+}
+
+function saveSyncSettings() {
+  const cfg = {
+    repo: el("syncRepo").value.trim() || "nblanco1213/blanco-tactical-studio",
+    branch: el("syncBranch").value.trim() || "main",
+    token: el("syncToken").value.trim()
+  };
+  localStorage.setItem(SYNC_KEY, JSON.stringify(cfg));
+  el("syncModal").classList.add("hidden");
+  showToast(cfg.token ? "Cloud Sync key saved!" : "Sync key cleared");
+}
+
+async function pushPlaybookToGitHub() {
+  const cfg = getSyncConfig();
+  if (!cfg.token) {
+    showToast("Paste your GitHub token first");
+    openSyncModal();
+    return;
+  }
+
+  showToast("Pushing playbook to GitHub...");
+  const apiUrl = `https://api.github.com/repos/${cfg.repo}/contents/playbook.json`;
+  const headers = {
+    "Authorization": `Bearer ${cfg.token}`,
+    "Accept": "application/vnd.github+json",
+    "Content-Type": "application/json"
+  };
+
+  try {
+    let sha = undefined;
+    const getRes = await fetch(`${apiUrl}?ref=${encodeURIComponent(cfg.branch)}`, { headers });
+    if (getRes.ok) {
+      const meta = await getRes.json();
+      sha = meta.sha;
+    }
+
+    const jsonStr = JSON.stringify(state.playbook, null, 2);
+    const encoded = btoa(unescape(encodeURIComponent(jsonStr)));
+    const putBody = {
+      message: `Sync playbook (${state.playbook.drills.length} drills) via Blanco Tactical Studio`,
+      content: encoded,
+      branch: cfg.branch
+    };
+    if (sha) putBody.sha = sha;
+
+    const putRes = await fetch(apiUrl, {
+      method: "PUT",
+      headers,
+      body: JSON.stringify(putBody)
+    });
+
+    if (!putRes.ok) {
+      const err = await putRes.json().catch(() => ({}));
+      throw new Error(err.message || `HTTP ${putRes.status}`);
+    }
+
+    showToast("Synced! Live across all devices in ~60s");
+  } catch (err) {
+    showToast(`Sync failed: ${err.message}`);
+  }
 }
 
 init();
