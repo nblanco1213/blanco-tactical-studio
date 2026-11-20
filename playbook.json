@@ -1,0 +1,225 @@
+{
+  "version": "1.0",
+  "appName": "Blanco Tactical Studio",
+  "drills": [
+    {
+      "id": "switchbacks-rondo-to-goal-01",
+      "title": "Rondo-to-Goal Transition (4v2 Boxes → 5v5+GK)",
+      "date": "2026-06-01",
+      "ageGroup": "U12",
+      "topic": "Transition",
+      "playerCount": 19,
+      "pitchType": "half-vertical",
+      "dimensions": "Half Pitch + Dual 7x7 Rondo Boxes",
+      "coachingPoints": {
+        "towardGoal": [
+          "Green: Two from Rondo enter the attack — forward w/ pace",
+          "Blue: One from each rondo box tracks back to defend (6 & fullback) — man mark"
+        ],
+        "rondoAction": [
+          "Green: Defending rondo... If they win it, they go towards goal",
+          "Blue: Simple rondo, X passes & pass into mini goals"
+        ],
+        "generalNotes": [
+          "Switch rondo box every rep",
+          "Forward",
+          "Tempo",
+          "Man marking"
+        ]
+      },
+      "equipment": [
+        { "type": "goal-main", "x": 50, "y": 4, "rotation": 0 },
+        { "type": "goal-mini", "x": 16, "y": 96, "rotation": 0 },
+        { "type": "goal-mini", "x": 28, "y": 96, "rotation": 0 },
+        { "type": "goal-mini", "x": 72, "y": 96, "rotation": 0 },
+        { "type": "goal-mini", "x": 84, "y": 96, "rotation": 0 },
+        { "type": "zone", "x": 13, "y": 76, "w": 18, "h": 14, "label": "7x7" },
+        { "type": "zone", "x": 69, "y": 76, "w": 18, "h": 14, "label": "7x7" },
+        { "type": "cone", "x": 13, "y": 76 },
+        { "type": "cone", "x": 31, "y": 76 },
+        { "type": "cone", "x": 13, "y": 90 },
+        { "type": "cone", "x": 31, "y": 90 },
+        { "type": "cone", "x": 69, "y": 76 },
+        { "type": "cone", "x": 87, "y": 76 },
+        { "type": "cone", "x": 69, "y": 90 },
+        { "type": "cone", "x": 87, "y": 90 }
+      ],
+      "phases": [
+        {
+          "name": "Phase 1: Rondo Action (4v2)",
+          "note": "Blue circulates in the 7x7 rondo (X passes → score in mini goals). Green presses 2v4.",
+          "durationMs": 1800,
+          "players": [
+            { "id": "gk1", "team": "gk", "num": "1", "x": 50, "y": 9 },
+            { "id": "b1", "team": "blue", "num": "4", "x": 28, "y": 35 },
+            { "id": "b2", "team": "blue", "num": "5", "x": 52, "y": 35 },
+            { "id": "b3", "team": "blue", "num": "2", "x": 76, "y": 35 },
+            { "id": "g1", "team": "green", "num": "11", "x": 17, "y": 46 },
+            { "id": "g2", "team": "green", "num": "9", "x": 43, "y": 41 },
+            { "id": "g3", "team": "green", "num": "7", "x": 78, "y": 45 },
+
+            { "id": "lb1", "team": "blue", "num": "6", "x": 16, "y": 78 },
+            { "id": "lb2", "team": "blue", "num": "8", "x": 28, "y": 78 },
+            { "id": "lb3", "team": "blue", "num": "3", "x": 16, "y": 88 },
+            { "id": "lb4", "team": "blue", "num": "10", "x": 28, "y": 88 },
+            { "id": "lg1", "team": "green", "num": "8", "x": 20, "y": 82 },
+            { "id": "lg2", "team": "green", "num": "10", "x": 25, "y": 84 },
+
+            { "id": "rb1", "team": "blue", "num": "6", "x": 72, "y": 78 },
+            { "id": "rb2", "team": "blue", "num": "8", "x": 84, "y": 78 },
+            { "id": "rb3", "team": "blue", "num": "2", "x": 72, "y": 88 },
+            { "id": "rb4", "team": "blue", "num": "10", "x": 84, "y": 88 },
+            { "id": "rg1", "team": "green", "num": "8", "x": 76, "y": 82 },
+            { "id": "rg2", "team": "green", "num": "10", "x": 81, "y": 84 }
+          ],
+          "balls": [
+            { "id": "ball1", "x": 18, "y": 79 }
+          ],
+          "arrows": [
+            { "type": "pass", "x1": 18, "y1": 79, "x2": 26, "y2": 79 },
+            { "type": "pass", "x1": 28, "y1": 80, "x2": 28, "y2": 86 }
+          ]
+        },
+        {
+          "name": "Phase 2: Green Wins Possession",
+          "note": "Green (#10) intercepts inside the left rondo box and looks forward immediately.",
+          "durationMs": 1500,
+          "players": [
+            { "id": "gk1", "team": "gk", "num": "1", "x": 50, "y": 9 },
+            { "id": "b1", "team": "blue", "num": "4", "x": 28, "y": 35 },
+            { "id": "b2", "team": "blue", "num": "5", "x": 52, "y": 35 },
+            { "id": "b3", "team": "blue", "num": "2", "x": 76, "y": 35 },
+            { "id": "g1", "team": "green", "num": "11", "x": 17, "y": 46 },
+            { "id": "g2", "team": "green", "num": "9", "x": 43, "y": 41 },
+            { "id": "g3", "team": "green", "num": "7", "x": 78, "y": 45 },
+
+            { "id": "lb1", "team": "blue", "num": "6", "x": 16, "y": 77 },
+            { "id": "lb2", "team": "blue", "num": "8", "x": 29, "y": 79 },
+            { "id": "lb3", "team": "blue", "num": "3", "x": 16, "y": 88 },
+            { "id": "lb4", "team": "blue", "num": "10", "x": 28, "y": 88 },
+            { "id": "lg1", "team": "green", "num": "8", "x": 21, "y": 79 },
+            { "id": "lg2", "team": "green", "num": "10", "x": 25, "y": 83 },
+
+            { "id": "rb1", "team": "blue", "num": "6", "x": 72, "y": 78 },
+            { "id": "rb2", "team": "blue", "num": "8", "x": 84, "y": 78 },
+            { "id": "rb3", "team": "blue", "num": "2", "x": 72, "y": 88 },
+            { "id": "rb4", "team": "blue", "num": "10", "x": 84, "y": 88 },
+            { "id": "rg1", "team": "green", "num": "8", "x": 76, "y": 82 },
+            { "id": "rg2", "team": "green", "num": "10", "x": 81, "y": 84 }
+          ],
+          "balls": [
+            { "id": "ball1", "x": 25, "y": 81 }
+          ],
+          "arrows": [
+            { "type": "dribble", "x1": 25, "y1": 81, "x2": 32, "y2": 60 },
+            { "type": "run", "x1": 21, "y1": 79, "x2": 36, "y2": 58 }
+          ]
+        },
+        {
+          "name": "Phase 3: Two Enter Attack w/ Pace",
+          "note": "Both Green rondo players burst forward into the attack. One Blue from each box (#6 & fullback) triggers recovery.",
+          "durationMs": 2000,
+          "players": [
+            { "id": "gk1", "team": "gk", "num": "1", "x": 50, "y": 9 },
+            { "id": "b1", "team": "blue", "num": "4", "x": 28, "y": 34 },
+            { "id": "b2", "team": "blue", "num": "5", "x": 52, "y": 33 },
+            { "id": "b3", "team": "blue", "num": "2", "x": 75, "y": 34 },
+            { "id": "g1", "team": "green", "num": "11", "x": 18, "y": 38 },
+            { "id": "g2", "team": "green", "num": "9", "x": 45, "y": 34 },
+            { "id": "g3", "team": "green", "num": "7", "x": 77, "y": 37 },
+
+            { "id": "lb1", "team": "blue", "num": "6", "x": 24, "y": 64 },
+            { "id": "lb2", "team": "blue", "num": "8", "x": 29, "y": 79 },
+            { "id": "lb3", "team": "blue", "num": "3", "x": 16, "y": 88 },
+            { "id": "lb4", "team": "blue", "num": "10", "x": 28, "y": 88 },
+            { "id": "lg1", "team": "green", "num": "8", "x": 38, "y": 54 },
+            { "id": "lg2", "team": "green", "num": "10", "x": 31, "y": 57 },
+
+            { "id": "rb1", "team": "blue", "num": "6", "x": 65, "y": 60 },
+            { "id": "rb2", "team": "blue", "num": "8", "x": 84, "y": 78 },
+            { "id": "rb3", "team": "blue", "num": "2", "x": 72, "y": 88 },
+            { "id": "rb4", "team": "blue", "num": "10", "x": 84, "y": 88 },
+            { "id": "rg1", "team": "green", "num": "8", "x": 76, "y": 82 },
+            { "id": "rg2", "team": "green", "num": "10", "x": 81, "y": 84 }
+          ],
+          "balls": [
+            { "id": "ball1", "x": 32, "y": 56 }
+          ],
+          "arrows": [
+            { "type": "pass", "x1": 32, "y1": 56, "x2": 44, "y2": 36 },
+            { "type": "run", "x1": 24, "y1": 64, "x2": 36, "y2": 45 },
+            { "type": "run", "x1": 65, "y1": 60, "x2": 58, "y2": 42 }
+          ]
+        },
+        {
+          "name": "Phase 4: Recovery & Man Marking",
+          "note": "Blue #6 and fullback track back to man-mark the late Green runners. Green plays at tempo.",
+          "durationMs": 1800,
+          "players": [
+            { "id": "gk1", "team": "gk", "num": "1", "x": 49, "y": 8 },
+            { "id": "b1", "team": "blue", "num": "4", "x": 27, "y": 29 },
+            { "id": "b2", "team": "blue", "num": "5", "x": 51, "y": 27 },
+            { "id": "b3", "team": "blue", "num": "2", "x": 72, "y": 29 },
+            { "id": "g1", "team": "green", "num": "11", "x": 22, "y": 27 },
+            { "id": "g2", "team": "green", "num": "9", "x": 47, "y": 25 },
+            { "id": "g3", "team": "green", "num": "7", "x": 73, "y": 26 },
+
+            { "id": "lb1", "team": "blue", "num": "6", "x": 35, "y": 42 },
+            { "id": "lb2", "team": "blue", "num": "8", "x": 29, "y": 79 },
+            { "id": "lb3", "team": "blue", "num": "3", "x": 16, "y": 88 },
+            { "id": "lb4", "team": "blue", "num": "10", "x": 28, "y": 88 },
+            { "id": "lg1", "team": "green", "num": "8", "x": 42, "y": 38 },
+            { "id": "lg2", "team": "green", "num": "10", "x": 33, "y": 40 },
+
+            { "id": "rb1", "team": "blue", "num": "6", "x": 58, "y": 40 },
+            { "id": "rb2", "team": "blue", "num": "8", "x": 84, "y": 78 },
+            { "id": "rb3", "team": "blue", "num": "2", "x": 72, "y": 88 },
+            { "id": "rb4", "team": "blue", "num": "10", "x": 84, "y": 88 },
+            { "id": "rg1", "team": "green", "num": "8", "x": 76, "y": 82 },
+            { "id": "rg2", "team": "green", "num": "10", "x": 81, "y": 84 }
+          ],
+          "balls": [
+            { "id": "ball1", "x": 46, "y": 26 }
+          ],
+          "arrows": [
+            { "type": "pass", "x1": 46, "y1": 26, "x2": 66, "y2": 22 }
+          ]
+        },
+        {
+          "name": "Phase 5: Finish on Goal",
+          "note": "Green attacks the box with 5 players for a decisive finish. Next rep: switch to right rondo box!",
+          "durationMs": 1800,
+          "players": [
+            { "id": "gk1", "team": "gk", "num": "1", "x": 53, "y": 7 },
+            { "id": "b1", "team": "blue", "num": "4", "x": 33, "y": 21 },
+            { "id": "b2", "team": "blue", "num": "5", "x": 50, "y": 20 },
+            { "id": "b3", "team": "blue", "num": "2", "x": 64, "y": 21 },
+            { "id": "g1", "team": "green", "num": "11", "x": 29, "y": 19 },
+            { "id": "g2", "team": "green", "num": "9", "x": 48, "y": 17 },
+            { "id": "g3", "team": "green", "num": "7", "x": 67, "y": 20 },
+
+            { "id": "lb1", "team": "blue", "num": "6", "x": 39, "y": 28 },
+            { "id": "lb2", "team": "blue", "num": "8", "x": 29, "y": 79 },
+            { "id": "lb3", "team": "blue", "num": "3", "x": 16, "y": 88 },
+            { "id": "lb4", "team": "blue", "num": 10, "x": 28, "y": 88 },
+            { "id": "lg1", "team": "green", "num": "8", "x": 44, "y": 27 },
+            { "id": "lg2", "team": "green", "num": "10", "x": 37, "y": 26 },
+
+            { "id": "rb1", "team": "blue", "num": "6", "x": 57, "y": 27 },
+            { "id": "rb2", "team": "blue", "num": "8", "x": 84, "y": 78 },
+            { "id": "rb3", "team": "blue", "num": "2", "x": 72, "y": 88 },
+            { "id": "rb4", "team": "blue", "num": "10", "x": 84, "y": 88 },
+            { "id": "rg1", "team": "green", "num": "8", "x": 76, "y": 82 },
+            { "id": "rg2", "team": "green", "num": "10", "x": 81, "y": 84 }
+          ],
+          "balls": [
+            { "id": "ball1", "x": 51, "y": 6 }
+          ],
+          "arrows": [
+            { "type": "shot", "x1": 66, "y1": 20, "x2": 51, "y2": 6 }
+          ]
+        }
+      ]
+    }
+  ]
+}

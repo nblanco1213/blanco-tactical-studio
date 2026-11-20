@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Blanco Tactical Studio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="theme-dark">
+  <div id="app" class="app-shell">
+    <!-- Minimal Top Bar -->
+    <header class="top-bar glass-panel" id="topBar">
+      <div class="bar-left">
+        <button class="icon-pill" id="btnToggleDrills" title="Open Drill Library">
+          <span>☰</span>
+          <span class="hide-sm">Drills</span>
+        </button>
+        <div class="title-stack">
+          <h1 id="activeDrillTitle">Select a Drill</h1>
+          <div class="meta-line" id="activeDrillMeta"></div>
+        </div>
+      </div>
+
+      <div class="bar-center">
+        <div class="mode-switcher" role="tablist">
+          <button class="mode-btn active" id="btnModePlayer" data-mode="player">Watch</button>
+          <button class="mode-btn" id="btnModeBoard" data-mode="board">Edit Board</button>
+        </div>
+      </div>
+
+      <div class="bar-right">
+        <button class="icon-pill" id="btnToggleNotes" title="Coaching Notes">
+          <span>Notes</span>
+        </button>
+        <button class="icon-pill" id="btnSunlight" title="Toggle Sunlight Contrast">
+          <span id="sunlightIcon">☀️</span>
+        </button>
+        <div class="menu-anchor">
+          <button class="icon-pill" id="btnMoreMenu" title="Import, Export & Embed">⋯</button>
+          <div class="dropdown-menu glass-panel hidden" id="moreDropdown">
+            <button id="btnNewDrill">+ New Blank Drill</button>
+            <button id="btnImportJson">Import Drill JSON</button>
+            <button id="btnExportBackup">Export Playbook Backup (.json)</button>
+            <button id="btnCopyEmbed">Copy Notion Embed Link</button>
+            <div class="dropdown-divider"></div>
+            <label class="dropdown-select-label">
+              Pitch Layout
+              <select id="pitchTypeSelect" class="select-field compact">
+                <option value="half-vertical">Half Pitch (Top Goal)</option>
+                <option value="half-horizontal">Half Pitch (Right Goal)</option>
+                <option value="full-horizontal">Full Pitch</option>
+                <option value="grid">Blank Grid</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Tactical Board Floating Toolbar (only in Edit Board mode) -->
+    <div class="board-toolbar glass-panel hidden" id="boardToolbar">
+      <div class="tool-group">
+        <button class="tool-btn active" data-tool="move">Move</button>
+        <button class="tool-btn" data-tool="arrow-pass">Pass</button>
+        <button class="tool-btn" data-tool="arrow-dribble">Dribble</button>
+        <button class="tool-btn" data-tool="arrow-run">Run</button>
+        <button class="tool-btn" data-tool="arrow-shot">Shot</button>
+        <button class="tool-btn" data-tool="erase">Erase</button>
+      </div>
+      <div class="tool-divider"></div>
+      <div class="tool-group">
+        <button class="dot-add-btn team-blue" data-add="blue">+ Blue</button>
+        <button class="dot-add-btn team-green" data-add="green">+ Green</button>
+        <button class="dot-add-btn team-red" data-add="red">+ Red</button>
+        <button class="dot-add-btn team-gold" data-add="gold">+ Neutral</button>
+        <button class="dot-add-btn team-gk" data-add="gk">+ GK</button>
+        <button class="tool-btn" data-add="ball">+ Ball</button>
+        <button class="tool-btn" data-add="cone">+ Cone</button>
+        <button class="tool-btn" data-add="goal-mini">+ Mini Goal</button>
+      </div>
+      <div class="tool-divider"></div>
+      <div class="tool-group">
+        <button class="tool-btn accent" id="btnAddPhase">+ Next Phase</button>
+        <button class="tool-btn" id="btnDeletePhase">Del Phase</button>
+        <button class="tool-btn" id="btnEditMeta">Edit Info</button>
+      </div>
+    </div>
+
+    <!-- Center Pitch Stage (Full-bleed minimal) -->
+    <main class="stage-main">
+      <div class="pitch-wrapper" id="pitchWrapper">
+        <svg id="pitchSvg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <marker id="arrowPass" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#ffffff" />
+            </marker>
+            <marker id="arrowRun" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#facc15" />
+            </marker>
+            <marker id="arrowDribble" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#38bdf8" />
+            </marker>
+            <marker id="arrowShot" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#fb7185" />
+            </marker>
+          </defs>
+          <g id="pitchSurfaceLayer"></g>
+          <g id="equipmentLayer"></g>
+          <g id="arrowsLayer"></g>
+          <g id="playersLayer"></g>
+          <g id="ballsLayer"></g>
+          <g id="draftLayer"></g>
+        </svg>
+      </div>
+
+      <!-- Floating Playback Pill -->
+      <div class="playback-pill glass-panel" id="playbackBar">
+        <button class="btn-play" id="btnPlayPause" title="Play / Pause">▶</button>
+        <button class="icon-btn" id="btnPrevPhase" title="Previous Phase">⏮</button>
+        <button class="icon-btn" id="btnNextPhase" title="Next Phase">⏭</button>
+
+        <div class="phase-pills" id="phasePills"></div>
+
+        <input type="range" id="phaseSlider" min="0" max="100" value="0" step="1" aria-label="Scrub animation" />
+
+        <button class="icon-btn active" id="btnLoop" title="Continuous Loop">🔁</button>
+        <select id="speedSelect" class="speed-select" title="Playback Speed">
+          <option value="0.5">0.5x</option>
+          <option value="1" selected>1x</option>
+          <option value="1.5">1.5x</option>
+          <option value="2">2x</option>
+        </select>
+      </div>
+
+      <!-- Subtle 1-Line Phase Caption -->
+      <div class="phase-caption" id="phaseNoteBanner">
+        <strong id="phaseNoteTitle">Phase 1</strong>
+        <span class="caption-dot">·</span>
+        <span id="phaseNoteText">Select a drill to view coaching notes.</span>
+      </div>
+    </main>
+  </div>
+
+  <!-- Slide-over Drawer Backdrop -->
+  <div class="drawer-backdrop hidden" id="drawerBackdrop"></div>
+
+  <!-- Left Slide-Over: Drill Library -->
+  <aside class="drawer drawer-left glass-panel hidden" id="drillsDrawer">
+    <div class="drawer-header">
+      <div>
+        <h2>Playbook</h2>
+        <span class="drawer-sub" id="drillCountBadge">0 Drills</span>
+      </div>
+      <button class="icon-btn" id="closeDrillsDrawer">✕</button>
+    </div>
+    <div class="drawer-filters">
+      <input type="search" id="searchInput" class="input-field" placeholder="Search drills or notes..." />
+      <div class="filter-grid">
+        <select id="filterAge" class="select-field" aria-label="Filter by age group">
+          <option value="all">All Ages</option>
+          <option value="U4">U4</option><option value="U5">U5</option><option value="U6">U6</option>
+          <option value="U7">U7</option><option value="U8">U8</option><option value="U9">U9</option>
+          <option value="U10">U10</option><option value="U11">U11</option><option value="U12">U12</option>
+        </select>
+        <select id="filterTopic" class="select-field" aria-label="Filter by coaching topic">
+          <option value="all">All Topics</option>
+          <option value="Transition">Transition</option>
+          <option value="Rondo">Rondo</option>
+          <option value="Finishing">Finishing</option>
+          <option value="Possession">Possession</option>
+          <option value="Pressing">Pressing</option>
+          <option value="Defending">Defending</option>
+          <option value="1v1 / Dribbling">1v1 / Dribbling</option>
+        </select>
+        <select id="filterPlayers" class="select-field" aria-label="Filter by player count">
+          <option value="all">Any Size</option>
+          <option value="1-6">1–6</option>
+          <option value="7-12">7–12</option>
+          <option value="13+">13+</option>
+        </select>
+      </div>
+    </div>
+    <div class="drill-list" id="drillList"></div>
+  </aside>
+
+  <!-- Right Slide-Over: Coaching Notes -->
+  <aside class="drawer drawer-right glass-panel hidden" id="notesDrawer">
+    <div class="drawer-header">
+      <h2>Coaching Notes</h2>
+      <button class="icon-btn" id="closeNotesDrawer">✕</button>
+    </div>
+    <div id="coachingPointsContainer" class="coaching-notes-content"></div>
+  </aside>
+
+  <!-- Import JSON Modal -->
+  <div class="modal-backdrop hidden" id="importModal">
+    <div class="modal-card glass-panel">
+      <div class="modal-header">
+        <h3>Import Drill or Playbook JSON</h3>
+        <button class="icon-btn" id="closeImportModal">✕</button>
+      </div>
+      <p class="modal-hint">Paste drill JSON or upload a `.json` backup file.</p>
+      <input type="file" id="importFileInput" accept=".json" class="file-input" />
+      <textarea id="importTextarea" class="json-textarea" placeholder='{"title": "My New Drill", "ageGroup": "U10", ...}'></textarea>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="cancelImportBtn">Cancel</button>
+        <button class="btn-primary" id="confirmImportBtn">Import</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Drill Metadata Modal -->
+  <div class="modal-backdrop hidden" id="metaModal">
+    <div class="modal-card glass-panel">
+      <div class="modal-header">
+        <h3>Edit Drill Details</h3>
+        <button class="icon-btn" id="closeMetaModal">✕</button>
+      </div>
+      <div class="form-grid">
+        <label>Drill Title
+          <input type="text" id="metaTitle" class="input-field" />
+        </label>
+        <label>Age Group
+          <select id="metaAge" class="select-field">
+            <option>U4</option><option>U5</option><option>U6</option><option>U7</option>
+            <option>U8</option><option>U9</option><option>U10</option><option>U11</option><option>U12</option>
+          </select>
+        </label>
+        <label>Coaching Topic
+          <select id="metaTopic" class="select-field">
+            <option>Transition</option><option>Rondo</option><option>Finishing</option>
+            <option>Possession</option><option>Pressing</option><option>Defending</option><option>1v1 / Dribbling</option>
+          </select>
+        </label>
+        <label>Player Count
+          <input type="number" id="metaPlayers" class="input-field" min="1" max="30" />
+        </label>
+        <label>Dimensions / Setup
+          <input type="text" id="metaDimensions" class="input-field" placeholder="e.g. Half Pitch + 7x7 Boxes" />
+        </label>
+        <label>Current Phase Note
+          <textarea id="metaPhaseNote" class="json-textarea small" placeholder="What happens in this phase?"></textarea>
+        </label>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="cancelMetaBtn">Cancel</button>
+        <button class="btn-primary" id="saveMetaBtn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="app.js"></script>
+</body>
+</html>
